@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="icon" type="image/png" href="assets/livestock-logo.png">
+    <meta name="application-name" content="Livestock Manager v3">
+    <meta charset="UTF-8">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alerts & Reminders | Livestock Manager</title>
+
+    <link rel="stylesheet" href="farm-alerts.css">
+    <link rel="stylesheet" href="premium-ui.css">
+<link rel="stylesheet" href="navigation-premium.css">
+<link rel="stylesheet" href="final-intelligence.css">
+<link rel="stylesheet" href="subscription.css">
+<script src="auth-api.js"></script>
+<script src="auth-guard.js"></script>
+    <link rel="stylesheet" href="v51-design.css?v=5.1.0">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+        <nav class="navbar" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="dashboard.html" class="logo" aria-label="Livestock Manager dashboard"><img class="lm-brand-icon" src="assets/livestock-logo.svg" alt="" width="42" height="42"><span>Livestock <em>Manager</em></span></a>
+    <button type="button" class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false" onclick="return window.LMNavToggle ? window.LMNavToggle(this) : false;">☰</button>
+    <div class="nav-links" id="navLinks">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="animals.html">Animals</a>
+        <a href="family-tree.html">Breeding</a>
+        <a href="health.html">Treatments</a>
+        <a href="money-stats.html">Sales</a>
+        <a href="farm-reports.html">Reports</a>
+      <details class="lm-more-menu"><summary>More <span aria-hidden="true">⌄</span></summary><div class="lm-more-popover">
+          <a href="livestock-overview.html">Herd overview</a>
+          <a href="animal-profile.html">Animal profile</a>
+          <a href="digital-pedigree.html">Digital pedigree</a>
+          <a href="operations.html">Operations</a>
+          <a href="feeding.html">Feeding</a>
+          <a href="weaning.html">Weaning</a>
+          <a href="growth.html">Growth</a>
+          <a href="vaccinations.html">Vaccinations</a>
+          <a href="farm-alerts.html" class="active" aria-current="page">Alerts</a>
+          <a href="subscription.html">Plans</a>
+      </div></details>
+    </div>
+    <a class="lm-account-shortcut" href="profile.html" aria-label="Open your farm profile"><span class="lm-avatar">FM</span><span class="lm-account-label">Farm Manager<small>My account</small></span></a>
+  </div>
+</nav>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="page-container">
+
+        <!-- HEADER -->
+
+        <section class="page-header">
+
+            <span class="page-label">
+                FARM MANAGEMENT
+            </span>
+
+            <h1>
+                Alerts & Reminders
+            </h1>
+
+            <p>
+                Stay informed about important livestock
+                activities and upcoming tasks.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             NOTIFICATION CONTROL
+        ========================== -->
+
+        <section class="notification-card">
+
+            <div class="notification-icon">
+                🔔
+            </div>
+
+            <div class="notification-information">
+
+                <h2>
+                    Farm Notifications
+                </h2>
+
+                <p id="notificationStatus">
+                    Notifications are currently disabled.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                class="notification-button"
+                id="notificationButton"
+            >
+                Enable Notifications
+            </button>
+
+        </section>
+
+        <section class="notification-card" id="emailAlertsCard">
+            <div class="notification-icon">&#9993;</div>
+            <div class="notification-information">
+                <h2>Email Alerts</h2>
+                <p id="emailAlertsStatus">Loading…</p>
+            </div>
+            <button type="button" class="notification-button" id="emailAlertsButton" disabled>Please wait</button>
+        </section>
+
+
+        <!-- =========================
+             ALERT SUMMARY
+        ========================== -->
+
+        <section class="summary-grid">
+
+            <div class="summary-card">
+
+                <span>
+                    DUE TODAY
+                </span>
+
+                <strong id="todayCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>
+                    NEXT 7 DAYS
+                </span>
+
+                <strong id="weekCount">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>
+                    OVERDUE
+                </span>
+
+                <strong id="overdueCount">
+                    0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ALERTS
+        ========================== -->
+
+        <section class="alerts-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Upcoming Tasks
+                </h2>
+
+                <p>
+                    Important livestock activities that
+                    may require your attention.
+                </p>
+
+            </div>
+
+
+            <div
+                class="alerts-list"
+                id="alertsList"
+            ></div>
+
+
+            <div
+                class="empty-state"
+                id="emptyState"
+            >
+
+                <div class="empty-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    No upcoming alerts
+                </h3>
+
+                <p>
+                    Your livestock records currently have
+                    no upcoming tasks.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             INFORMATION
+        ========================== -->
+
+        <section class="info-card">
+
+            <div class="info-icon">
+                💡
+            </div>
+
+            <div>
+
+                <h3>
+                    Keep your livestock records updated
+                </h3>
+
+                <p>
+                    Birth dates, weaning dates, vaccination
+                    dates and health information help the
+                    app create useful reminders.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="cloud-config.js"></script>
+    <script src="v5-merge.js"></script>
+    <script src="livestock-cloud.js"></script>
+    <script src="livestock-core.js"></script>
+    <script src="subscription.js"></script>
+    <script src="farm-alerts.js"></script><script src="alert-prefs.js"></script>
+
+<script src="navigation.js?v=4.0.8"></script>
+<script src="final-intelligence.js"></script>
+    <script src="v51-design.js?v=5.1.0"></script>
+</body>
+</html>

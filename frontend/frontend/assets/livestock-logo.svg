@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="512" height="512" role="img" aria-label="Livestock Manager cow and fields mark">
+ <defs><linearGradient id="leaf" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#7d9554"/><stop offset="1" stop-color="#405923"/></linearGradient></defs>
+ <path d="M27 37C14 32 12 22 13 15c9 8 19 11 31 12m57 10c13-5 15-15 14-22-9 8-19 11-31 12" fill="none" stroke="#556b2f" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+ <path d="M40 30c12-8 36-8 48 0 6 14 7 33-1 48-4 8-11 15-23 17-12-2-19-9-23-17-8-15-7-34-1-48Z" fill="url(#leaf)"/>
+ <path d="M40 40c-9-9-17-7-20-1-1 9 8 16 20 14m48-13c9-9 17-7 20-1 1 9-8 16-20 14" fill="#77924b"/>
+ <path d="M48 51c4-4 9-4 13 0m6 0c4-4 9-4 13 0" fill="none" stroke="#f8f7f0" stroke-width="4" stroke-linecap="round"/>
+ <path d="M50 69c8-7 20-7 28 0l-3 12c-7 7-15 7-22 0Z" fill="#f1f2e6"/>
+ <ellipse cx="58" cy="72" rx="2.5" ry="3" fill="#405923"/><ellipse cx="70" cy="72" rx="2.5" ry="3" fill="#405923"/>
+ <path d="M14 98c28-15 61-17 100-1M16 109c28-11 55-12 91-2M28 117c26-7 51-7 76-1" fill="none" stroke="#7d9554" stroke-width="6" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="icon" type="image/png" href="assets/livestock-logo.png">
+    <meta name="application-name" content="Livestock Manager v3">
+    <meta charset="UTF-8">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Farm Reports | Livestock Manager</title>
+
+    <link rel="stylesheet" href="farm-reports.css">
+    <link rel="stylesheet" href="premium-ui.css">
+<link rel="stylesheet" href="navigation-premium.css">
+<link rel="stylesheet" href="final-intelligence.css">
+<link rel="stylesheet" href="subscription.css">
+<script src="auth-api.js"></script>
+<script src="auth-guard.js"></script>
+    <link rel="stylesheet" href="v51-design.css?v=5.1.0">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+        <nav class="navbar" aria-label="Main navigation">
+  <div class="nav-container">
+    <a href="dashboard.html" class="logo" aria-label="Livestock Manager dashboard"><img class="lm-brand-icon" src="assets/livestock-logo.svg" alt="" width="42" height="42"><span>Livestock <em>Manager</em></span></a>
+    <button type="button" class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false" onclick="return window.LMNavToggle ? window.LMNavToggle(this) : false;">☰</button>
+    <div class="nav-links" id="navLinks">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="animals.html">Animals</a>
+        <a href="family-tree.html">Breeding</a>
+        <a href="health.html">Treatments</a>
+        <a href="money-stats.html">Sales</a>
+        <a href="farm-reports.html" class="active" aria-current="page">Reports</a>
+      <details class="lm-more-menu"><summary>More <span aria-hidden="true">⌄</span></summary><div class="lm-more-popover">
+          <a href="livestock-overview.html">Herd overview</a>
+          <a href="animal-profile.html">Animal profile</a>
+          <a href="digital-pedigree.html">Digital pedigree</a>
+          <a href="operations.html">Operations</a>
+          <a href="feeding.html">Feeding</a>
+          <a href="weaning.html">Weaning</a>
+          <a href="growth.html">Growth</a>
+          <a href="vaccinations.html">Vaccinations</a>
+          <a href="farm-alerts.html">Alerts</a>
+          <a href="subscription.html">Plans</a>
+      </div></details>
+    </div>
+    <a class="lm-account-shortcut" href="profile.html" aria-label="Open your farm profile"><span class="lm-avatar">FM</span><span class="lm-account-label">Farm Manager<small>My account</small></span></a>
+  </div>
+</nav>
+
+
+    <!-- MAIN -->
+
+    <main class="page-container">
+
+        <!-- HEADER -->
+
+        <section class="page-header">
+
+            <span class="page-label">
+                FARM MANAGEMENT
+            </span>
+
+            <h1>
+                Farm Reports
+            </h1>
+
+            <p>
+                Review important livestock records and
+                farming activities in one place.
+            </p>
+
+        </section>
+
+
+        <!-- SUMMARY -->
+
+        <section class="summary-grid">
+
+            <div class="summary-card">
+
+                <span>
+                    TOTAL ANIMALS
+                </span>
+
+                <strong id="totalAnimals">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>
+                    WEIGHT RECORDS
+                </span>
+
+                <strong id="weightRecords">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>
+                    BIRTH RECORDS
+                </span>
+
+                <strong id="birthRecords">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <span>
+                    HEALTH RECORDS
+                </span>
+
+                <strong id="healthRecords">
+                    0
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- LIVESTOCK RECORDS -->
+
+        <section class="report-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Livestock Records
+                </h2>
+
+                <p>
+                    Number of animals recorded by type.
+                </p>
+
+            </div>
+
+
+            <div class="records-list">
+
+                <div class="record-row">
+
+                    <div class="record-icon">
+                        🐄
+                    </div>
+
+                    <div class="record-name">
+                        <strong>Cattle</strong>
+                        <span>Registered cattle</span>
+                    </div>
+
+                    <strong id="cattleCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="record-row">
+
+                    <div class="record-icon">
+                        🐐
+                    </div>
+
+                    <div class="record-name">
+                        <strong>Goats</strong>
+                        <span>Registered goats</span>
+                    </div>
+
+                    <strong id="goatCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="record-row">
+
+                    <div class="record-icon">
+                        🐑
+                    </div>
+
+                    <div class="record-name">
+                        <strong>Sheep</strong>
+                        <span>Registered sheep</span>
+                    </div>
+
+                    <strong id="sheepCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="record-row">
+
+                    <div class="record-icon">
+                        🐖
+                    </div>
+
+                    <div class="record-name">
+                        <strong>Pigs</strong>
+                        <span>Registered pigs</span>
+                    </div>
+
+                    <strong id="pigCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FARM ACTIVITY -->
+
+        <section class="report-section">
+
+            <div class="section-heading">
+
+                <h2>
+                    Farm Activity
+                </h2>
+
+                <p>
+                    Records currently stored in the system.
+                </p>
+
+            </div>
+
+
+            <div class="activity-grid">
+
+                <div class="activity-card">
+
+                    <div class="activity-icon">
+                        ⚖️
+                    </div>
+
+                    <div>
+                        <strong>Growth & Weight</strong>
+
+                        <p>
+                            Track changes in animal weight
+                            over time.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-card">
+
+                    <div class="activity-icon">
+                        🐣
+                    </div>
+
+                    <div>
+                        <strong>Births</strong>
+
+                        <p>
+                            Keep track of livestock births
+                            and expected births.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-card">
+
+                    <div class="activity-icon">
+                        ❤️
+                    </div>
+
+                    <div>
+                        <strong>Health</strong>
+
+                        <p>
+                            Review health and vaccination
+                            records.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="activity-card">
+
+                    <div class="activity-icon">
+                        🌾
+                    </div>
+
+                    <div>
+                        <strong>Feeding</strong>
+
+                        <p>
+                            Monitor recorded feeding
+                            activities.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INFORMATION -->
+
+        <section class="info-card">
+
+            <div class="info-icon">
+                📊
+            </div>
+
+            <div>
+
+                <h3>
+                    Better records, better decisions
+                </h3>
+
+                <p>
+                    Keeping accurate records helps you
+                    understand your livestock and monitor
+                    the performance of your farm.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="cloud-config.js"></script>
+    <script src="v5-merge.js"></script>
+    <script src="livestock-cloud.js"></script>
+    <script src="livestock-core.js"></script>
+    <script src="subscription.js"></script>
+    <script src="farm-reports.js"></script>
+
+<script src="navigation.js?v=4.0.8"></script>
+<script src="final-intelligence.js"></script>
+    <script src="v51-design.js?v=5.1.0"></script>
+</body>
+</html>
